@@ -5,6 +5,7 @@ import { ActivityIndicator, View } from "react-native";
 export default () => {
   let [fontsLoaded] = useFonts({
     PBold: require("../assets/fonts/Poppins-Medium.ttf"),
+    PRegular: require("../assets/fonts/Poppins-Regular.ttf"),
     PBolder: require("../assets/fonts/Poppins-Bold.ttf"),
   });
   if (!fontsLoaded)
@@ -27,6 +28,14 @@ export default () => {
       />
       <Stack.Screen
         name="register"
+        options={{ headerShown: false, animation: "slide_from_right" }}
+      />
+      <Stack.Screen
+        name="login"
+        options={{ headerShown: false, animation: "slide_from_right" }}
+      />
+      <Stack.Screen
+        name="fp"
         options={{ headerShown: false, animation: "slide_from_right" }}
       />
     </Stack>

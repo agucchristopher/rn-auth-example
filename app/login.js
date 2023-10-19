@@ -6,7 +6,7 @@ import Input from "../components/Input";
 import { Path, Svg } from "react-native-svg";
 import { StatusBar } from "expo-status-bar";
 
-const register = () => {
+const login = () => {
   let { width, height } = Dimensions.get("screen");
   return (
     <View style={styles.container}>
@@ -33,7 +33,7 @@ const register = () => {
         }}
         numberOfLines={2}
       >
-        <Text> Hello! </Text>
+        <Text> Welcome back! </Text>
       </Text>
       <Text
         style={{
@@ -44,7 +44,7 @@ const register = () => {
         }}
         numberOfLines={2}
       >
-        <Text> Register to get started </Text>
+        <Text>Glad to see you again</Text>
       </Text>
       <View
         style={{
@@ -53,10 +53,19 @@ const register = () => {
           columnGap: 5,
         }}
       >
-        <Input title="Username" />
-        <Input title="Email" />
-        <Input title="Password" secureTextEntry={true} />
-        <Input title="Confirm Password" secureTextEntry={true} />
+        <Input title="Enter Your Email" />
+        <Input title="Enter Your Password" secureTextEntry={true} />
+        <TouchableOpacity
+          style={{
+            width: 150,
+            alignSelf: "flex-end",
+          }}
+          onPress={() => router.push("/fp")}
+        >
+          <Text style={{ textAlign: "right", fontFamily: "PBold" }}>
+            Forgot Password?
+          </Text>
+        </TouchableOpacity>
         <TouchableOpacity
           style={{
             height: 60,
@@ -68,6 +77,7 @@ const register = () => {
             justifyContent: "center",
             borderWidth: 2,
             margin: 20,
+            marginTop: 5,
           }}
           onPress={() => router.push("/login")}
         >
@@ -79,7 +89,7 @@ const register = () => {
               fontSize: 18,
             }}
           >
-            Register
+            Login
           </Text>
         </TouchableOpacity>
       </View>
@@ -100,7 +110,7 @@ const register = () => {
           }}
         ></View>
         <Text style={{ color: "#6A707C", fontFamily: "PBold", fontSize: 18 }}>
-          Or Register with
+          Or Login with
         </Text>
         <View
           style={{
@@ -215,7 +225,7 @@ const register = () => {
           justifyContent: "center",
         }}
       >
-        Already have an account?{" "}
+        Don't have an account?{" "}
         <Text
           style={{
             color: "#00D0C2",
@@ -223,16 +233,16 @@ const register = () => {
             fontFamily: "PBold",
             alignSelf: "center",
           }}
-          onPress={() => router.push("/login")}
+          onPress={() => router.push("/register")}
         >
-          Login Now
+          Register Now
         </Text>
       </Text>
     </View>
   );
 };
 
-export default register;
+export default login;
 
 const styles = StyleSheet.create({
   container: {

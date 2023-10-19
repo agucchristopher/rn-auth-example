@@ -1,5 +1,6 @@
 import {
   Dimensions,
+  ImageBackground,
   StyleSheet,
   Text,
   TouchableOpacity,
@@ -14,15 +15,30 @@ import { router } from "expo-router";
 const app = () => {
   let { width, height } = Dimensions.get("screen");
   return (
-    <View style={styles.container}>
-      <StatusBar style="dark" />
+    <ImageBackground
+      source={require("../assets/images/img.png")}
+      style={styles.container}
+    >
+      <StatusBar style="dark" backgroundColor="#CBD9E1" />
       <View
         style={{
-          height: height * 0.65,
-          backgroundColor: "dodgerblue",
+          height: height * 0.5,
+          backgroundColor: "#fff",
           margin: 5,
+          alignSelf: "center",
         }}
-      ></View>
+      >
+        <Image
+          style={{ width: width }}
+          resizeMode="cover"
+          source={require("../assets/images/img.png")}
+        />
+      </View>
+      <Image
+        style={{ width: 150, height: 150, alignSelf: "center" }}
+        resizeMode="contain"
+        source={require("../assets/images/Branding.png")}
+      />
       <TouchableOpacity
         style={{
           height: 60,
@@ -33,6 +49,7 @@ const app = () => {
           alignContent: "center",
           justifyContent: "center",
         }}
+        onPress={() => router.push("/login")}
       >
         <Text
           style={{
@@ -54,7 +71,7 @@ const app = () => {
           borderRadius: 10,
           alignContent: "center",
           justifyContent: "center",
-          borderWidth: 2,
+          borderWidth: 3,
           margin: 15,
         }}
         onPress={() => router.push("/register")}
@@ -77,14 +94,14 @@ const app = () => {
             borderColor: "#00D0C2",
             fontFamily: "PBold",
             alignSelf: "center",
-            fontSize: 18,
+            fontSize: 15,
             borderBottomWidth: 1,
           }}
         >
           Continue as a guest
         </Text>
       </TouchableOpacity>
-    </View>
+    </ImageBackground>
   );
 };
 
@@ -94,5 +111,7 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: "#FFF",
     flex: 1,
+    resizeMode: "cover",
+    marginTop: 20,
   },
 });
