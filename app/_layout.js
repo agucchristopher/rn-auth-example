@@ -7,7 +7,7 @@ export default () => {
     PBold: require("../assets/fonts/Poppins-Medium.ttf"),
     PBolder: require("../assets/fonts/Poppins-Bold.ttf"),
   });
-  if (fontsLoaded)
+  if (!fontsLoaded)
     return (
       <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
         <ActivityIndicator size={"large"} />
