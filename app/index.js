@@ -71,7 +71,7 @@ const app = () => {
           borderRadius: 10,
           alignContent: "center",
           justifyContent: "center",
-          borderWidth: 3,
+          borderWidth: 2,
           margin: 15,
         }}
         onPress={() => router.push("/register")}
