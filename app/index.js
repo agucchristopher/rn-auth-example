@@ -9,14 +9,20 @@ import React from "react";
 import { FlatList } from "react-native-gesture-handler";
 import { Image } from "react-native";
 import { StatusBar } from "expo-status-bar";
+import { router } from "expo-router";
 
 const app = () => {
   let { width, height } = Dimensions.get("screen");
   return (
     <View style={styles.container}>
       <StatusBar style="dark" />
-      <View></View>
-      <Text>app</Text>
+      <View
+        style={{
+          height: height * 0.65,
+          backgroundColor: "dodgerblue",
+          margin: 5,
+        }}
+      ></View>
       <TouchableOpacity
         style={{
           height: 60,
@@ -51,16 +57,31 @@ const app = () => {
           borderWidth: 2,
           margin: 15,
         }}
+        onPress={() => router.push("/register")}
       >
         <Text
           style={{
             color: "#000",
-            fontFamily: "PBold",
+            fontFamily: "PBolder",
             alignSelf: "center",
             fontSize: 18,
           }}
         >
           Register
+        </Text>
+      </TouchableOpacity>
+      <TouchableOpacity>
+        <Text
+          style={{
+            color: "#00D0C2",
+            borderColor: "#00D0C2",
+            fontFamily: "PBold",
+            alignSelf: "center",
+            fontSize: 18,
+            borderBottomWidth: 1,
+          }}
+        >
+          Continue as a guest
         </Text>
       </TouchableOpacity>
     </View>
@@ -71,7 +92,7 @@ export default app;
 
 const styles = StyleSheet.create({
   container: {
-    backgroundColor: "#fff",
+    backgroundColor: "#FFF",
     flex: 1,
   },
 });
