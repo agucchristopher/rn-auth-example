@@ -8,12 +8,12 @@ export default () => {
     PRegular: require("../assets/fonts/Poppins-Regular.ttf"),
     PBolder: require("../assets/fonts/Poppins-Bold.ttf"),
   });
-  if (!fontsLoaded)
-    return (
-      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-        <ActivityIndicator size={"large"} />
-      </View>
-    );
+  // if (!fontsLoaded)
+  //   return (
+  //     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+  //       <ActivityIndicator size={"large"} />
+  //     </View>
+  //   );
   return (
     <Stack
       screenOptions={{

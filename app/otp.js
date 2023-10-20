@@ -1,13 +1,28 @@
-import { Dimensions, Image, StyleSheet, Text, View } from "react-native";
-import React from "react";
+import {
+  Dimensions,
+  FlatList,
+  Image,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from "react-native";
+import React, { useEffect, useRef } from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { router } from "expo-router";
 import Input from "../components/Input";
 import { Path, Svg } from "react-native-svg";
 import { StatusBar } from "expo-status-bar";
 
-const fp = () => {
+const otp = () => {
   let { width, height } = Dimensions.get("screen");
+  let inputRef = useRef();
+  useEffect(() => {
+    // let current = inputRef.current.value;
+    // current.focus();
+    console.log(this);
+  }, []);
+
   return (
     <View style={styles.container}>
       <StatusBar backgroundColor="#fff" />
@@ -33,7 +48,7 @@ const fp = () => {
         }}
         numberOfLines={2}
       >
-        <Text> Forgot Password? </Text>
+        <Text> OTP Verification </Text>
       </Text>
       <Text
         style={{
@@ -41,14 +56,11 @@ const fp = () => {
           fontFamily: "PRegular",
           margin: 15,
           marginTop: 0,
+          marginLeft: 20,
         }}
-        numberOfLines={2}
+        // numberOfLines={2}
       >
-        <Text>
-          {" "}
-          Don't worry it occurs. Please enter the email address linked with your
-          account.{" "}
-        </Text>
+        Enter the verification code we just sent to your email.
       </Text>
 
       <View
@@ -58,7 +70,40 @@ const fp = () => {
           columnGap: 5,
         }}
       >
-        <Input title="Enter Your Email" />
+        <FlatList
+          data={["", "", "", ""]}
+          contentContainerStyle={{
+            flexDirection: "row",
+            gap: 15,
+            alignSelf: "center",
+          }}
+          renderItem={({ index, item }) => {
+            return (
+              <View
+                style={{
+                  //   paddingLeft: 20,
+                  backgroundColor: "#F7F8F9",
+                  height: 80,
+                  borderRadius: 10,
+                  alignItems: "center",
+                  borderColor: "#E8ECF4",
+                  borderWidth: 1,
+                  width: 70,
+                  justifyContent: "center",
+                }}
+              >
+                <TextInput
+                  ref={inputRef}
+                  onTextInput={() => {
+                    console.log(inputRef);
+                  }}
+                  style={{ height: 50, width: 50, textAlign: "center" }}
+                  maxLength={1}
+                />
+              </View>
+            );
+          }}
+        />
 
         <TouchableOpacity
           style={{
@@ -73,17 +118,17 @@ const fp = () => {
             margin: 20,
             marginTop: 5,
           }}
-          onPress={() => router.push("/otp")}
+          onPress={() => router.push("/login")}
         >
           <Text
             style={{
               color: "#fff",
-              fontFamily: "PBolder",
+              fontFamily: "PBold",
               alignSelf: "center",
               fontSize: 18,
             }}
           >
-            Send Code
+            Verify
           </Text>
         </TouchableOpacity>
       </View>
@@ -96,6 +141,8 @@ const fp = () => {
           alignSelf: "center",
           alignItems: "center",
           justifyContent: "center",
+          position: "absolute",
+          bottom: 2,
         }}
       >
         Remeber Password?{" "}
@@ -115,7 +162,7 @@ const fp = () => {
   );
 };
 
-export default fp;
+export default otp;
 
 const styles = StyleSheet.create({
   container: {
