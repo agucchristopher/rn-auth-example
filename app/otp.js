@@ -57,6 +57,7 @@ const otp = () => {
           margin: 15,
           marginTop: 0,
           marginLeft: 20,
+          color: "#8391A1",
         }}
         // numberOfLines={2}
       >
@@ -118,7 +119,7 @@ const otp = () => {
             margin: 20,
             marginTop: 5,
           }}
-          onPress={() => router.push("/login")}
+          onPress={() => router.push("/np")}
         >
           <Text
             style={{
@@ -168,6 +169,6 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     backgroundColor: "#fff",
-    padding: 10,
+    // padding: 10,
   },
 });

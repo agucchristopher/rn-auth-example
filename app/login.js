@@ -30,10 +30,11 @@ const login = () => {
           fontFamily: "PBold",
           margin: 15,
           marginBottom: 0,
+          marginLeft: 20,
         }}
         numberOfLines={2}
       >
-        <Text> Welcome back! </Text>
+        Welcome back!
       </Text>
       <Text
         style={{
@@ -41,10 +42,11 @@ const login = () => {
           fontFamily: "PBold",
           margin: 15,
           marginTop: 0,
+          marginLeft: 20,
         }}
         numberOfLines={2}
       >
-        <Text>Glad to see you again</Text>
+        Glad to see you again
       </Text>
       <View
         style={{
@@ -223,6 +225,8 @@ const login = () => {
           alignSelf: "center",
           alignItems: "center",
           justifyContent: "center",
+          position: "absolute",
+          bottom: 2,
         }}
       >
         Don't have an account?{" "}

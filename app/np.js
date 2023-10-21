@@ -6,7 +6,7 @@ import Input from "../components/Input";
 import { Path, Svg } from "react-native-svg";
 import { StatusBar } from "expo-status-bar";
 
-const fp = () => {
+const np = () => {
   let { width, height } = Dimensions.get("screen");
   return (
     <View style={styles.container}>
@@ -33,7 +33,8 @@ const fp = () => {
         }}
         numberOfLines={2}
       >
-        Forgot Password?
+        {" "}
+        Create new password{" "}
       </Text>
       <Text
         style={{
@@ -41,13 +42,12 @@ const fp = () => {
           fontFamily: "PRegular",
           margin: 15,
           marginTop: 0,
+          marginLeft: 20,
           color: "#8391A1",
         }}
         numberOfLines={2}
       >
-        {" "}
-        Don't worry it occurs. Please enter the email address linked with your
-        account.{" "}
+        Your new password must be unique from those previously used
       </Text>
 
       <View
@@ -57,7 +57,8 @@ const fp = () => {
           columnGap: 5,
         }}
       >
-        <Input title="Enter Your Email" />
+        <Input title="New Password" />
+        <Input title="Confirm Password" />
 
         <TouchableOpacity
           style={{
@@ -72,7 +73,7 @@ const fp = () => {
             margin: 20,
             marginTop: 5,
           }}
-          onPress={() => router.push("/otp")}
+          onPress={() => router.push("/changed")}
         >
           <Text
             style={{
@@ -82,41 +83,15 @@ const fp = () => {
               fontSize: 18,
             }}
           >
-            Send Code
+            Reset Password
           </Text>
         </TouchableOpacity>
       </View>
-
-      <Text
-        style={{
-          fontSize: 15,
-          fontFamily: "PBold",
-          margin: 15,
-          alignSelf: "center",
-          alignItems: "center",
-          justifyContent: "center",
-          position: "absolute",
-          bottom: 2,
-        }}
-      >
-        Remeber Password?{" "}
-        <Text
-          style={{
-            color: "#00D0C2",
-            borderColor: "#00D0C2",
-            fontFamily: "PBold",
-            alignSelf: "center",
-          }}
-          onPress={() => router.push("/login")}
-        >
-          Login
-        </Text>
-      </Text>
     </View>
   );
 };
 
-export default fp;
+export default np;
 
 const styles = StyleSheet.create({
   container: {

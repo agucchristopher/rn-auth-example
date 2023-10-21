@@ -112,6 +112,6 @@ const styles = StyleSheet.create({
     backgroundColor: "#FFF",
     flex: 1,
     resizeMode: "cover",
-    marginTop: 20,
+    // marginTop: 20,
   },
 });

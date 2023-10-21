@@ -30,10 +30,11 @@ const register = () => {
           fontFamily: "PBold",
           margin: 15,
           marginBottom: 0,
+          marginLeft: 20,
         }}
         numberOfLines={2}
       >
-        <Text> Hello! </Text>
+        Hello!
       </Text>
       <Text
         style={{
@@ -41,10 +42,11 @@ const register = () => {
           fontFamily: "PBold",
           margin: 15,
           marginTop: 0,
+          marginLeft: 20,
         }}
         numberOfLines={2}
       >
-        <Text> Register to get started </Text>
+        Register to get started
       </Text>
       <View
         style={{
@@ -213,6 +215,8 @@ const register = () => {
           alignSelf: "center",
           alignItems: "center",
           justifyContent: "center",
+          position: "absolute",
+          bottom: 2,
         }}
       >
         Already have an account?{" "}
