@@ -20,8 +20,7 @@ const otp = () => {
   const [SelectedItem, setSelectedItem] = useState(0);
   let inputRef = useRef();
   useEffect(() => {
-    // let current = inputRef.current.value;
-    // current.focus();
+    inputRef.current.focus();
     console.log(this);
   }, []);
 
@@ -96,16 +95,15 @@ const otp = () => {
                 }}
               >
                 <TextInput
-                  ref={inputRef}
+                  ref={SelectedItem == index ? inputRef : null}
                   onFocus={() => {
                     // console.log(inputRef);
                     setSelectedItem(index);
                   }}
                   onTextInput={() => {
                     if (index != 3) {
-                      setSelectedItem((val) => {
-                        return val++;
-                      });
+                      setSelectedItem(index + 1);
+                      inputRef.current.focus();
                     } else {
                       setSelectedItem((value) => (value = 3));
                     }
