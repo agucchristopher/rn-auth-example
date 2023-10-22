@@ -8,12 +8,12 @@ export default () => {
     PRegular: require("../assets/fonts/Poppins-Regular.ttf"),
     PBolder: require("../assets/fonts/Poppins-Bold.ttf"),
   });
-  // if (!fontsLoaded)
-  //   return (
-  //     <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
-  //       <ActivityIndicator size={"large"} />
-  //     </View>
-  //   );
+  if (!fontsLoaded)
+    return (
+      <View style={{ flex: 1, alignItems: "center", justifyContent: "center" }}>
+        <ActivityIndicator size={"large"} color={"black"} />
+      </View>
+    );
   return (
     <Stack
       screenOptions={{
@@ -36,6 +36,19 @@ export default () => {
       />
       <Stack.Screen
         name="fp"
+        options={{ headerShown: false, animation: "slide_from_right" }}
+      />
+      <Stack.Screen
+        name="otp"
+        options={{ headerShown: false, animation: "slide_from_right" }}
+      />
+      <Stack.Screen
+        name="np"
+        options={{ headerShown: false, animation: "slide_from_right" }}
+      />
+
+      <Stack.Screen
+        name="changed"
         options={{ headerShown: false, animation: "slide_from_right" }}
       />
     </Stack>

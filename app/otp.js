@@ -2,12 +2,13 @@ import {
   Dimensions,
   FlatList,
   Image,
+  KeyboardAvoidingView,
   StyleSheet,
   Text,
   TextInput,
   View,
 } from "react-native";
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { TouchableOpacity } from "react-native-gesture-handler";
 import { router } from "expo-router";
 import Input from "../components/Input";
@@ -16,6 +17,7 @@ import { StatusBar } from "expo-status-bar";
 
 const otp = () => {
   let { width, height } = Dimensions.get("screen");
+  const [SelectedItem, setSelectedItem] = useState(0);
   let inputRef = useRef();
   useEffect(() => {
     // let current = inputRef.current.value;
@@ -87,7 +89,7 @@ const otp = () => {
                   height: 80,
                   borderRadius: 10,
                   alignItems: "center",
-                  borderColor: "#E8ECF4",
+                  borderColor: SelectedItem == index ? "#00D0C2" : "#E8ECF4",
                   borderWidth: 1,
                   width: 70,
                   justifyContent: "center",
@@ -95,8 +97,18 @@ const otp = () => {
               >
                 <TextInput
                   ref={inputRef}
+                  onFocus={() => {
+                    // console.log(inputRef);
+                    setSelectedItem(index);
+                  }}
                   onTextInput={() => {
-                    console.log(inputRef);
+                    if (index != 3) {
+                      setSelectedItem((val) => {
+                        return val++;
+                      });
+                    } else {
+                      setSelectedItem((value) => (value = 3));
+                    }
                   }}
                   style={{ height: 50, width: 50, textAlign: "center" }}
                   maxLength={1}
@@ -133,32 +145,46 @@ const otp = () => {
           </Text>
         </TouchableOpacity>
       </View>
-
-      <Text
+      <KeyboardAvoidingView
         style={{
           fontSize: 15,
           fontFamily: "PBold",
-          margin: 15,
+          // margin: 15,
           alignSelf: "center",
           alignItems: "center",
           justifyContent: "center",
           position: "absolute",
           bottom: 2,
+          flex: 1,
         }}
+        behavior="height"
       >
-        Remeber Password?{" "}
         <Text
           style={{
-            color: "#00D0C2",
-            borderColor: "#00D0C2",
+            fontSize: 15,
             fontFamily: "PBold",
+            // margin: 15,
             alignSelf: "center",
+            alignItems: "center",
+            justifyContent: "center",
+            position: "absolute",
+            bottom: 2,
           }}
-          onPress={() => router.push("/login")}
         >
-          Login
+          Remeber Password?{" "}
+          <Text
+            style={{
+              color: "#00D0C2",
+              borderColor: "#00D0C2",
+              fontFamily: "PBold",
+              alignSelf: "center",
+            }}
+            onPress={() => router.push("/login")}
+          >
+            Login
+          </Text>
         </Text>
-      </Text>
+      </KeyboardAvoidingView>
     </View>
   );
 };

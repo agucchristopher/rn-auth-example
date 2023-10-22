@@ -105,7 +105,7 @@ const login = () => {
       >
         <View
           style={{
-            borderWidth: 1.5,
+            borderWidth: 1,
             width: "30%",
             borderColor: "#E8ECF4",
             alignSelf: "center",
@@ -116,7 +116,7 @@ const login = () => {
         </Text>
         <View
           style={{
-            borderWidth: 1.5,
+            borderWidth: 1,
             width: "30%",
             borderColor: "#E8ECF4",
             alignSelf: "center",

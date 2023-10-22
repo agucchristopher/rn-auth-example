@@ -71,15 +71,17 @@ const app = () => {
           borderRadius: 10,
           alignContent: "center",
           justifyContent: "center",
-          borderWidth: 2,
+          borderWidth: 2.5,
           margin: 15,
+          elevation: 2,
+          marginTop: 10,
         }}
         onPress={() => router.push("/register")}
       >
         <Text
           style={{
             color: "#000",
-            fontFamily: "PBolder",
+            fontFamily: "PBold",
             alignSelf: "center",
             fontSize: 18,
           }}
@@ -87,7 +89,9 @@ const app = () => {
           Register
         </Text>
       </TouchableOpacity>
-      <TouchableOpacity>
+      <TouchableOpacity
+        style={{ position: "absolute", bottom: 15, alignSelf: "center" }}
+      >
         <Text
           style={{
             color: "#00D0C2",
